@@ -1,39 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { increment, decrement } from '~/actions/counter'
-
-function mapStateToProps(state) {
-  const { count } = state.counterReducer
-  return { count }
-}
+import qs from 'qs'
+import { getStorageItem, setStorageItem } from '~/utils'
 
 class Entry extends React.Component {
   constructor(props) {
     super(props)
-    this.addOne = this.addOne.bind(this)
-    this.subOne = this.subOne.bind(this)
   }
-  addOne() {
-    const { dispatch } = this.props
-    dispatch(increment())
-  }
-  subOne() {
-    const { dispatch } = this.props
-    dispatch(decrement())
+  componentWillMount() {
+    const { search } = this.props.location
+    const query = qs.parse(search.substr(1))
+    if (query.access_token) {
+      setStorageItem('access_token', query.access_token)
+    }
+    const access_token = getStorageItem('access_token')
+    if (!access_token) {
+      this.props.history.push('/login')
+    } else {
+      this.props.history.push('/home')
+    }
   }
   render() {
-    const { count } = this.props
-    return (
-      <div>
-        <h1>count is: {count}</h1>
-        <h2>hahahaha</h2>
-        <h1 onClick={this.addOne}>+1</h1>
-        <h1 onClick={this.subOne}>-1</h1>
-      </div>
-    )
+    return <span></span>
   }
 }
 
-export default connect(mapStateToProps)(Entry)
+export default Entry
+
 
 

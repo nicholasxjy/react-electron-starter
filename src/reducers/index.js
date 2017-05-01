@@ -1,6 +1,8 @@
-import { counterReducer } from './counter'
 import { combineReducers } from 'redux'
+import { authReducer } from './auth'
+import { spotifyReducer } from './spotify'
 
 export default combineReducers({
-  counterReducer
+  authReducer,
+  spotifyReducer
 })

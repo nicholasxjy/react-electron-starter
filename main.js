@@ -11,20 +11,18 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-const isProd = process.env.NODE_ENV === 'prod'
-const prodPath = url.format({
-  pathname: path.join(__dirname, 'index.html'),
-  protocol: 'file:',
-  slashes: true
-})
-const urlPath = isProd ?  prodPath : 'http://localhost:9000'
-
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 900,
+    height: 650,
+    frame: false,
+    titleBarStyle: 'hidden-inset',
+    resizable: false
+  })
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(urlPath)
+  // and load the index.html of the awpp.
+  mainWindow.loadURL('http://localhost:9000')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

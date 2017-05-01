@@ -83,7 +83,9 @@ module.exports = (options = {}) => {
       })
     ],
     devServer: {
-      port: 9000
+      port: 9000,
+      contentBase: '/',
+      historyApiFallback: true
     }
   }
   return config

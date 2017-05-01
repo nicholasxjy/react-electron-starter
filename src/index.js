@@ -1,12 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
-
 import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
 import configureStore from '~/store'
-import Entry from '~/pages/Entry'
-import Home from '~/pages/Home'
-
+import App from '~/App'
 import 'normalize.css'
 import 'sass/reset.scss'
 
@@ -14,12 +11,9 @@ const store = configureStore()
 
 const Root = (
   <Provider store={store}>
-    <BrowserRouter>
-      <div>
-        <Route exact path="/" component={Entry}></Route>
-        <Route path="/home" component={Home}></Route>
-      </div>
-    </BrowserRouter>
+    <Router>
+      <App />
+    </Router>
   </Provider>
 )
 

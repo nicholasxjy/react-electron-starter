@@ -1,0 +1,38 @@
+.titlebar {
+  border-bottom: 1px solid #e6e6e6;
+}
+.titlebar-inner {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 30px;
+  padding-left: 100px;
+  form {
+    flex: 1 1;
+    margin-right: 30px;
+  }
+  .form-group {
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 8px 25px;
+      background-color: #efefef;
+      border-radius: 36px;
+    }
+  }
+}
+.user {
+  width: 36px;
+  height: 36px;
+  img {
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+}
+
